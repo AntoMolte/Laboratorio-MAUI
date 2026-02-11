@@ -13,21 +13,26 @@
                 FontSize="24"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"/>
-            
-            <Entry x:Name=" entConversione"
+
+            <Entry x:Name="entConversione"
                    Placeholder="Inserisci importo CHF"
                    Keyboard="Numeric"/>
-            
+
             <Button x:Name="btnConverti"
                     Text="Converti in Euro"
                     TextColor="White"
                     Clicked="btnConverti_Clicked"/>
 
             <Label x:Name="lblRisultato"
-                   Text="Risultato"
+                   Text="Risultato: "
                    FontSize="20"
-                   HorizontalOptions="Center"
-                   Margin="0,20,0,0"/>
+                   HorizontalOptions="Center"/>
+
+            <Button x:Name="BtnReset"
+                    Text="Pulisci"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="btnReset_Clicked"/>
 
         </VerticalStackLayout>
     </ScrollView>

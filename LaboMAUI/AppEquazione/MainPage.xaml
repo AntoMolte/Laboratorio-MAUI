@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEquazione.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20">
+            <Label
+                Text="Risolutore Equazioni di Secondo Grado"
+                FontSize="22"
+                HorizontalTextAlignment="Center" />
+            <Grid
+                RowSpacing="15"
+                ColumnSpacing="10" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label
+                    Text="Coefficiente a:"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalOptions="Center" />
+                <Entry x:Name="EntA"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Placeholder="Inserisci a"
+                       Keyboard="Numeric"/>
+                <Label
+                    Text="Coefficiente b:"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center" />
+                <Entry x:Name="EntB"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Placeholder="Inserisci b"
+                   Keyboard="Numeric"/>
+                <Label
+                    Text="Coefficiente c:"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="Center" />
+                <Entry x:Name="EntC"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Placeholder="Inserisci c"
+                       Keyboard="Numeric"/>
+            </Grid>
+
+            <Button x:Name="btnCalcoloRadici"
+                    Clicked="btnCalcoloRadici_Clicked"
+                    Text="Calcola Radici"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,20"/>
+
+            <Label x:Name="LblRisultato"
+                   Text="Risultato..."
+                   HorizontalTextAlignment="Center"
+                   BackgroundColor="LightGrey"
+                   Padding="10"
+                   FontSize="16"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
