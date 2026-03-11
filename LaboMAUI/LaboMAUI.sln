@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConvertitore", "AppConve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppEquazione", "AppEquazione\AppEquazione.csproj", "{866C195A-C55A-40E4-8242-C7CA4849667E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppQuiz", "AppQuiz\AppQuiz.csproj", "{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{866C195A-C55A-40E4-8242-C7CA4849667E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{866C195A-C55A-40E4-8242-C7CA4849667E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{866C195A-C55A-40E4-8242-C7CA4849667E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +55,7 @@ Global
 		{3AEFB8BD-3B88-4CB5-9641-283DDB145D20} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 		{D1D9883A-1680-4F65-B498-557A3504BBCA} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 		{866C195A-C55A-40E4-8242-C7CA4849667E} = {0CC28019-740F-45A0-80FF-8BA0495CD6BD}
+		{9B3E6447-51C1-40F1-ACFD-548E7D7E69BC} = {0CC28019-740F-45A0-80FF-8BA0495CD6BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C242C566-55DB-45A2-9763-BED336C834A4}
