@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?> 
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -15,16 +15,45 @@
             FontSize="28"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
-
         <Label 
             x:Name="ScoreLabel"
             Text="Punteggio: 0"
             FontSize="22"
             HorizontalOptions="Center" />
-        <Button 
-            Text="Torna al Quiz"
-            Clicked="OnRestartClicked"
+        <Label 
+            Text="su un totale di 65 pt"
+            FontSize="16"
+            TextColor="Gray"
+            VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        
+        <Label x:Name="LblBestScore"
+               TextColor="Gold" 
+               FontSize="22"
+               HorizontalOptions="Center" />
+
+        <!--Caricamento nome + salvataggio-->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+            <Entry x:Name="NameEntry"
+                   Placeholder="Inserisci il tuo nome..."
+                   WidthRequest="300"
+                   HorizontalOptions="FillAndExpand"/>
+            <Button Text="Salva"
+                    Clicked="OnSave_Clicked"
+                    BackgroundColor="#6367FF"
+                    WidthRequest="100"
+                    TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Clicked="OnRestartClicked" -->
+        <Button Text="GIOCA ANCORA"
+                HeightRequest="60"
+                WidthRequest="200"
+                FontSize="18"
+                FontAttributes="Bold"
+                BackgroundColor="#5B3FD4"
+                TextColor="White"
+                Clicked="OnRestart_Clicked"/>
 
     </VerticalStackLayout>
 

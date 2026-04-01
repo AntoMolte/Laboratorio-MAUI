@@ -8,27 +8,8 @@ namespace AppQuiz.Models
 {
     public abstract class QuestionBase
     {
-
-        private string _text;
-        private int _points;
-        public string Text 
-        {
-            get { return _text; }
-            set { _text = value; }
-        }
-
-        public int Points 
-        {
-            get { return _points; }
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-                _points = value;
-            } 
-        }
+        public string Text { get; set; }
+        public int Points { get; set; }
 
         public QuestionBase(string text, int points)
         {
@@ -36,6 +17,26 @@ namespace AppQuiz.Models
             Points = points;
         }
 
-        public abstract bool CheckAnswer(bool userAnswer); 
+        public abstract bool CheckAnswer(object answer);
+        public abstract string ToRiga();
+
+        public static QuestionBase? DaRiga(string riga)
+        {
+            var parts = riga.Split(';');
+            if (parts.Length < 4) return null;
+
+            string type = parts[0];
+            string text = parts[1];
+            if (!int.TryParse(parts[2], out int points)) return null;
+            string answer = parts[3];
+
+            if (type == "TF" && bool.TryParse(answer, out bool correct))
+                return new TrueFalseQuestion(text, points, correct);
+
+            if (type == "OPEN")
+                return new OpenQuestion(text, points, answer);
+
+            return null;
+        }
     }
 }

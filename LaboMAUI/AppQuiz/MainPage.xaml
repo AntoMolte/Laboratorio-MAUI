@@ -60,6 +60,13 @@
                         FontSize="18"
                         BackgroundColor="{StaticResource Primary}"/>
             </VerticalStackLayout>
+            <Button x:Name="btnResult" 
+                WidthRequest="140" 
+                HeightRequest="50"
+                Text="Vai a risultati"
+                BackgroundColor="#FFC400"
+                Clicked="btnResult_Clicked" />
+
         </VerticalStackLayout>
     </ScrollView>
 

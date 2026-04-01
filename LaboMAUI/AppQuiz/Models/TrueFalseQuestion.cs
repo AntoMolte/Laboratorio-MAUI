@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppQuiz.Models
+﻿namespace AppQuiz.Models
 {
     public class TrueFalseQuestion : QuestionBase
     {
-        private bool _correctAnswer;
-        public bool CorrectAnswer 
-        { 
-            get { return _correctAnswer; } 
-            set { _correctAnswer = value; } 
-        }
-        public TrueFalseQuestion(string text, int points, bool correctAnswer) 
+        public bool CorrectAnswer { get; set; }
+
+        public TrueFalseQuestion(string text, int points, bool correctAnswer)
             : base(text, points)
         {
             CorrectAnswer = correctAnswer;
         }
-        public override bool CheckAnswer(bool userAnswer)
+
+        public override bool CheckAnswer(object answer)
         {
-            return userAnswer == CorrectAnswer;
+            if (answer is bool b) return b == CorrectAnswer;
+            return false;
         }
+
+        public override string ToRiga()
+            => $"TF;{Text};{Points};{CorrectAnswer}";
     }
 }

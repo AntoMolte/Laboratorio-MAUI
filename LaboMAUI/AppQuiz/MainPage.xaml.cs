@@ -12,10 +12,53 @@ namespace AppQuiz
         public MainPage()
         {
             InitializeComponent();
-            _questions.Add(new TrueFalseQuestion("Il C# è un linguaggio a oggetti.", 10, true));
-            _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato?", 10, false));
-            _questions.Add(new OpenQuestion("Qual è la capitale d'Italia?", 10, "Roma"));
-            ShowQuestion();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (_questions.Count == 0)
+            {
+                await LoadQuestions();
+                ShowQuestion();
+            }
+        }
+
+        private async Task LoadQuestions()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("domande.txt");
+            using var reader = new StreamReader(stream);
+
+            while (!reader.EndOfStream)
+            {
+                string line = await reader.ReadLineAsync();
+
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                string[] parts = line.Split(';');
+
+                string type = parts[0];
+                string text = parts[1];
+                int points = int.Parse(parts[2]);
+                string answer = parts[3];
+
+                if (type == "TF")
+                {
+                    bool correct = bool.Parse(answer);
+
+                    _questions.Add(
+                        new TrueFalseQuestion(text, points, correct)
+                    );
+                }
+                else if (type == "OPEN")
+                {
+                    _questions.Add(
+                        new OpenQuestion(text, points, answer)
+                    );
+                }
+            }
         }
 
         private void ShowQuestion()
@@ -44,6 +87,7 @@ namespace AppQuiz
             }
             else
             {
+                OnQuizFinished();
                 QuestionTextLabel.Text = $"Quiz completato! Punteggio finale: {_score}";
                 TrueButton.IsVisible = false;
                 FalseButton.IsVisible = false;
@@ -58,16 +102,19 @@ namespace AppQuiz
             if (string.IsNullOrEmpty(userAnswer))
             {
                 await DisplayAlert("Errore", "Per favore inserisci una risposta.", "OK");
+                OpenAnswerEntry.Text = string.Empty;
                 return;
             }
             else if (_questions[_currentIndex].GetType() == typeof(OpenQuestion) && (_questions[_currentIndex] as OpenQuestion).CheckAnswer(userAnswer))
             {
                 _score += _questions[_currentIndex].Points;
                 await DisplayAlert("Corretto!", "Hai indovinato.", "OK");
+                OpenAnswerEntry.Text = string.Empty;
             }
             else
             {
                 await DisplayAlert("Sbagliato!", "La risposta corretta era: " + (_questions[_currentIndex] as OpenQuestion).CorrectAnswer, "OK");
+                OpenAnswerEntry.Text = string.Empty;
             }
             _currentIndex++;
             ShowQuestion();
@@ -89,7 +136,10 @@ namespace AppQuiz
             ShowQuestion();
         }
 
-
+        private void btnResult_Clicked(object sender, EventArgs e)
+        {
+            OnQuizFinished();
+        }
         private async void OnQuizFinished()
         {
             await Navigation.PushAsync(new ResultPage(_score));
@@ -102,3 +152,4 @@ namespace AppQuiz
 
     }
 }
+
