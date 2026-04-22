@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSpese.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+           
+            <Label Text="Le mie spese"/>
+           
+            <Entry x:Name="EntNomeLista" Placeholder="Nome lista"/>
+            <Entry x:Name="EntDescrizione" Placeholder="Descrizione"/>
+            <Entry x:Name="EntImporto" Placeholder="Importo"/>
+            <Entry x:Name="EntQuantita" Placeholder="Quantita"/>
+            
+            <Button Clicked="OnSalvaClicked" Text="Salva Spesa"/>
+            <Button Clicked="OnVediClicked" Text="Vedi Spesa"/>
+
+            <Label Text="Liste salvate:"/>
+
+            <Editor x:Name="EdiListe" IsReadOnly="True"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
