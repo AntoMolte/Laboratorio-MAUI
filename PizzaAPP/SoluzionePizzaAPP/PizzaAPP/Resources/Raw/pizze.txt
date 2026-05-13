@@ -1,0 +1,6 @@
+Margherita|7.50|Pomodoro, Mozzarella, Basilico
+Diavola|9.00|Pomodoro, Mozzarella, Salame Piccante
+Quattro Stagioni|10.50|Pomodoro, Mozzarella, Prosciutto, Funghi
+Capricciosa|10.00|Pomodoro, Mozzarella, Prosciutto, Funghi, Olive
+Bufalina|11.00|Pomodoro, Mozzarella di Bufala, Basilico Fresco
+Vegetariana|9.50|Pomodoro, Mozzarella, Zucchine, Peperoni

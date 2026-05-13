@@ -3,19 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaAPP.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
-            <Label Text="Menu Pizze"
-                FontSize="28"
-                HorizontalOptions="Center"
-                FontAttributes="Bold"/>
-            <Label Text="Seleziona il tipo di pizza" FontSize="18"/>
+    <CollectionView x:Name="PizzeList">
+        <CollectionView.ItemTemplate>
+            <DataTemplate xmlns:models="clr-namespace:PizzaAPP.Models">
+                <Grid Padding="12,8" ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="{Binding Nome}"
+                               FontSize="18" FontAttributes="Bold" />
+                        <Label Text="{Binding Ingredienti}"
+                               FontSize="12" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1"
+                           Text="{Binding PrezzoFormattato}"
+                           FontSize="16" FontAttributes="Bold"
+                           TextColor="#1A5276"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
-            <Picker x:Name="pickPizza"
-                    Title="Scegli una pizza"
-                    ItemDisplayBinding="{Binding Nome}"
-                    SelectedIndexChanged="OnSelectedIndexChanged"/>
-        </VerticalStackLayout>
-    </ScrollView>
 
 </ContentPage>
